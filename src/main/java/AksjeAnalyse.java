@@ -20,7 +20,6 @@ public class AksjeAnalyse {
       aksjeKurs[i + 1] = aksjeKurs[i] + prisEndring[i];
     }
 
-
     int minPris = aksjeKurs[0];
     int minDag = 0;
     int maxProfitt = 0;
@@ -46,6 +45,9 @@ public class AksjeAnalyse {
     System.out.println("Beste salg: dag " + salgDag);
     System.out.println("Maks fortjeneste: " + maxProfitt);
 
+    // kjører oppgave 1-3 samtidig for enkel kompilering
+    System.out.println("\n--- Starter Oppgave 1-3 (tidsmåling) ---");
+    TidsMaling.main(new String[0]);   // <-- kjør tidsmålingen
   }
 
   /**
@@ -69,10 +71,7 @@ public class AksjeAnalyse {
    * da programmet må kjøre igjennom hele datasettet. Øvre og nedre grense for kjøretid
    * er dermed like, og <b>&Theta;</b>-notasjon brukes.</p>
    */
-
-  public static class oppgavetekst {
-  }
-
+  public static class oppgavetekst { }
 
   /**
    * <h2>Oppgave 1-3</h2>
@@ -82,7 +81,7 @@ public class AksjeAnalyse {
    */
   public static class TidsMaling {
     public static void main(String[] args) {
-      int[] storrelser = {10,1_000,10_000, 100_000,1_000_000};
+      int[] storrelser = {10, 1_000, 10_000, 100_000, 1_000_000};
       int repetisjoner = 200;
 
       java.util.Random rand = new java.util.Random();
@@ -100,10 +99,9 @@ public class AksjeAnalyse {
         }
         long slutt = System.nanoTime();
 
-        double totalMs = (slutt - start) / 1000000.0;
+        double totalMs = (slutt - start) / 1_000_000.0;
 
-
-        System.out.printf("n=%-6d  repetisjoner=%-4d  total=%.2f ms (kontroll=%d)%n",
+        System.out.printf("n=%-8d  repetisjoner=%-4d  total=%.2f ms  (kontroll=%d)%n",
                 n, repetisjoner, totalMs, kontroll);
       }
 
@@ -129,5 +127,4 @@ public class AksjeAnalyse {
       return maxProfitt;
     }
   }
-
 }

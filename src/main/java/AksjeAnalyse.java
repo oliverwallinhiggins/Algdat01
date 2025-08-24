@@ -20,6 +20,7 @@ public class AksjeAnalyse {
       aksjeKurs[i + 1] = aksjeKurs[i] + prisEndring[i];
     }
 
+
     int minPris = aksjeKurs[0];
     int minDag = 0;
     int maxProfitt = 0;
